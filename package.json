@@ -1,0 +1,7 @@
+{
+  "name": "spk-tinymce",
+  "version": "0.0.1",
+  "dependencies": {
+    "tinymce": "4.7.*"
+  }
+}
