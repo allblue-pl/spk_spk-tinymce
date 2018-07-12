@@ -8,23 +8,26 @@ const
 export default class Editor
 {
 
-    constructor(layout, htmlElement)
+    constructor(layout, htmlElement, pkgUri = '/node_modules/spk-tinymce')
     {
-        js0.args(arguments, spocky.Layout, htmlElement);
+        js0.args(arguments, spocky.Layout, htmlElement, [ 'string', js0.Default ]);
 
         this.htmlElement = htmlElement;
+        this.pkgUri = pkgUri;
 
         layout.$onDisplay((displayed) => {
             if (displayed)
                 this.activate();
             else
                 this.deactivate();
-        })
+        });
     }
 
     activate()
     {
         this.deactivate();
+
+        console.log(`${this.pkgUri}/css/styles.css`);
 
         tinymce.init({
             target: this.htmlElement,
@@ -33,6 +36,8 @@ export default class Editor
             plugins: [
                 'link', 'preview',
             ],
+            body_class: 'spk-tinymce-editor',
+            content_css: `${this.pkgUri}/css/styles.css`,
         });
         this.editor = tinymce.get(this.htmlElement.id);
     }
