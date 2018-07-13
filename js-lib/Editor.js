@@ -27,17 +27,16 @@ export default class Editor
     {
         this.deactivate();
 
-        console.log(`${this.pkgUri}/css/styles.css`);
-
         tinymce.init({
             target: this.htmlElement,
             theme: 'modern',
             mobile: { theme: 'mobile' },
             plugins: [
-                'link', 'preview',
+                'link', 'image', 'preview',
             ],
             body_class: 'spk-tinymce-editor',
             content_css: `${this.pkgUri}/css/styles.css`,
+            relative_urls : false,
         });
         this.editor = tinymce.get(this.htmlElement.id);
     }
