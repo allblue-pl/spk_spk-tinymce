@@ -15,11 +15,16 @@ export default class Editor
         this.htmlElement = htmlElement;
         this.pkgUri = pkgUri;
 
+        this._editor = null;
+        this._content = '';
         layout.$onDisplay((displayed) => {
-            if (displayed)
+            if (displayed) {
                 this.activate();
-            else
+                this._editor.setContent(this._content);
+            } else {
+                this._content = this._editor.getContent();
                 this.deactivate();
+            }
         });
     }
 
@@ -38,23 +43,30 @@ export default class Editor
             content_css: `${this.pkgUri}/css/styles.css`,
             relative_urls : false,
         });
-        this.editor = tinymce.get(this.htmlElement.id);
+        this._editor = tinymce.get(this.htmlElement.id);
     }
 
     deactivate()
     {
+        this._editor = null;
         if (this.htmlElement.id in tinymce.editors)
             tinymce.get(this.htmlElement.id).destroy();
     }
 
     getHtml()
     {
-        return this.editor.getContent();
+        if (this._editor === null)
+            return this._content;
+
+        return this._editor.getContent();
     }
 
     setHtml(html)
     {
-        this.editor.setContent(html);
+        if (this._editor === null)
+            this._content = html;
+        else
+            this._editor.setContent(html);
     }
 
 }
