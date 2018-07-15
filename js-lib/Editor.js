@@ -37,7 +37,7 @@ export default class Editor
             theme: 'modern',
             mobile: { theme: 'mobile' },
             plugins: [
-                'link', 'image', 'preview',
+                'link', 'image', 'lists', 'preview',
             ],
             body_class: 'spk-tinymce-editor',
             content_css: `${this.pkgUri}/css/styles.css`,
