@@ -32,7 +32,9 @@ export default class Editor
     {
         this.deactivate();
 
+        tinyMCE.baseURL = '/dev/node_modules/tinymce/';
         tinymce.init({
+            document_base_url: '/dev/node_modules/tinymce/',
             target: this.htmlElement,
             theme: 'modern',
             mobile: { theme: 'mobile' },
