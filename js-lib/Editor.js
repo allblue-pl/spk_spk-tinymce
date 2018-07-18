@@ -39,10 +39,11 @@ export default class Editor
             theme: 'modern',
             mobile: { theme: 'mobile' },
             plugins: [
-                'link', 'image', 'lists', 'preview',
+                'code', 'link', 'image', 'lists', 'paste', 'preview',
             ],
             body_class: 'spk-tinymce-editor',
             content_css: `${this.pkgUri}/css/styles.css`,
+            paste_as_text: true,
             relative_urls : false,
         });
         this._editor = tinymce.get(this.htmlElement.id);
