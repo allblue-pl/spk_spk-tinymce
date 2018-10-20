@@ -45,6 +45,8 @@ export default class Editor
             content_css: `${this.pkgUri}/css/styles.css`,
             paste_as_text: true,
             relative_urls : false,
+            remove_script_host : false,
+            convert_urls : true,
         });
         this._editor = tinymce.get(this.htmlElement.id);
     }
