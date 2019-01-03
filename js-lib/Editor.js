@@ -39,11 +39,13 @@ export default class Editor
             theme: 'modern',
             mobile: { theme: 'mobile' },
             plugins: [
-                'code', 'link', 'image', 'lists', 'paste', 'preview', 'textcolor',
+                'code', 'hr', 'link', 'image', 'lists', 'paste', 'preview', 'textcolor', 
+                    'table',
             ],
-            toolbar: "undo redo | styleselect | bold italic | alignleft" +
-                    "aligncenter alignright alignjustify | " +
-                    "forecolor | bullist numlist outdent indent | link image",
+            toolbar: "undo redo | styleselect | bold italic" +
+                    " | alignleft aligncenter alignright alignjustify" +
+                    " | forecolor | bullist numlist outdent indent | link image" +
+                    " | table | hr | code",
             body_class: 'spk-tinymce-editor',
             content_css: `${this.pkgUri}/css/styles.css`,
             paste_as_text: true,
