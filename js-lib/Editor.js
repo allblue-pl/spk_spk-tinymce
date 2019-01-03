@@ -47,9 +47,9 @@ export default class Editor
             body_class: 'spk-tinymce-editor',
             content_css: `${this.pkgUri}/css/styles.css`,
             paste_as_text: true,
-            relative_urls : false,
-            remove_script_host : false,
-            convert_urls : true,
+            relative_urls: true,
+            remove_script_host: false,
+            convert_urls: false,
         });
         this._editor = tinymce.get(this.htmlElement.id);
     }
