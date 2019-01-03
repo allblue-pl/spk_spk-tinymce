@@ -41,6 +41,9 @@ export default class Editor
             plugins: [
                 'code', 'link', 'image', 'lists', 'paste', 'preview', 'textcolor',
             ],
+            toolbar: "undo redo | styleselect | bold italic | alignleft" +
+                    "aligncenter alignright alignjustify | " +
+                    "forecolor | bullist numlist outdent indent | link image",
             body_class: 'spk-tinymce-editor',
             content_css: `${this.pkgUri}/css/styles.css`,
             paste_as_text: true,
