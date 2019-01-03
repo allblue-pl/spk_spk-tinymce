@@ -39,7 +39,7 @@ export default class Editor
             theme: 'modern',
             mobile: { theme: 'mobile' },
             plugins: [
-                'code', 'link', 'image', 'lists', 'paste', 'preview',
+                'code', 'link', 'image', 'lists', 'paste', 'preview', 'textcolor',
             ],
             body_class: 'spk-tinymce-editor',
             content_css: `${this.pkgUri}/css/styles.css`,
