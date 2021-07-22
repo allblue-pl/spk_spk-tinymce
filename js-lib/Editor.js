@@ -70,6 +70,11 @@ export default class Editor
         return this._editor.getContent();
     }
 
+    insertHtml_AtCursor(html)
+    {
+        tinymce.activeEditor.execCommand('mceInsertContent', false, html);
+    }
+
     setHtml(html)
     {
         if (this._editor === null)
