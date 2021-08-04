@@ -35,7 +35,7 @@ export default class Editor
         tinymce.init({
             document_base_url: '/dev/node_modules/tinymce',
             target: this.htmlElement,
-            theme: 'modern',
+            theme: 'silver',
             mobile: { theme: 'mobile' },
             plugins: [
                 'code', 'hr', 'link', 'image', 'lists', 'paste', 'preview', 'textcolor', 
