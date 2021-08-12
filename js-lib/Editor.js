@@ -15,6 +15,9 @@ export default class Editor
         this.htmlElement = htmlElement;
         this.pkgUri = pkgUri;
 
+        this._plugins = [ 'code', 'hr', 'link', 'image', 'lists', 'paste', 
+                'preview', 'table', ];
+
         this._editor = null;
         this._content = '';
         layout.$onDisplay((displayed) => {
@@ -28,19 +31,26 @@ export default class Editor
         });
     }
 
+    addPlugins(plugins)
+    {
+        js0.args(arguments, Array);
+
+        for (let plugin of plugins)
+            this._plugins.push(plugin);
+    }
+
     activate()
     {
         this.deactivate();
+
+        console.log('Test', this._plugins);
 
         tinymce.init({
             document_base_url: '/dev/node_modules/tinymce',
             target: this.htmlElement,
             theme: 'silver',
             mobile: { theme: 'mobile' },
-            plugins: [
-                'code', 'hr', 'link', 'image', 'lists', 'paste', 'preview', 'textcolor', 
-                    'table',
-            ],
+            plugins: this._plugins,
             toolbar: "undo redo | styleselect | bold italic" +
                     " | alignleft aligncenter alignright alignjustify" +
                     " | forecolor | bullist numlist outdent indent | link image" +
@@ -81,6 +91,13 @@ export default class Editor
             this._content = html;
         else
             this._editor.setContent(html);
+    }
+
+    setPlugins(plugins)
+    {
+        js0.args(arguments, Array);
+
+        this._plugins = plugins;
     }
 
 }
