@@ -43,8 +43,6 @@ export default class Editor
     {
         this.deactivate();
 
-        console.log('Test', this._plugins);
-
         tinymce.init({
             document_base_url: '/dev/node_modules/tinymce',
             target: this.htmlElement,
