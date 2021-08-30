@@ -43,11 +43,22 @@ export default class Editor
     {
         this.deactivate();
 
+        let baseUri = '/dev/node_modules/tinymce/';
+        // let pluginUrls = [];
+        // for (let plugin of this._plugins)
+        //     pluginUrls.push(`${baseUri}plugins/${plugin}`);
+
         tinymce.init({
-            document_base_url: '/dev/node_modules/tinymce',
+            base_url: baseUri,
+            relative_urls : false,
+            remove_script_host : true,
+            document_base_url: baseUri,
+            convert_urls: false,
+
             target: this.htmlElement,
-            theme: 'silver',
-            mobile: { theme: 'mobile' },
+            theme: `silver`,
+            skin: `oxide`,
+            mobile: { theme: `mobile` },
             plugins: this._plugins,
             toolbar: "undo redo | styleselect | bold italic" +
                     " | alignleft aligncenter alignright alignjustify" +
@@ -56,9 +67,6 @@ export default class Editor
             body_class: 'spk-tinymce-editor',
             content_css: `${this.pkgUri}/css/styles.css`,
             paste_as_text: true,
-            relative_urls: true,
-            remove_script_host: false,
-            convert_urls: false,
         });
         this._editor = tinymce.get(this.htmlElement.id);
     }
