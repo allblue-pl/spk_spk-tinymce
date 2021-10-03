@@ -88,7 +88,8 @@ export default class Editor
 
     insertHtml_AtCursor(html)
     {
-        tinymce.activeEditor.execCommand('mceInsertContent', false, html);
+        tinymce.activeEditor.execCommand('mceInsertContent', false, html + 
+                '<p>&nbsp;</p>');
     }
 
     setHtml(html)
